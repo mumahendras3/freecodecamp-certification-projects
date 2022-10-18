@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+</head>
+<body>
+<header>
+    <h1 id="title">BigOne Game Store Customer Survey</h1>
+    <p id="description">Thank you for taking the time to fill our survey</p>
+</header>
+<main>
+    <form id="survey-form">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name" id="name-label">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name (ex: John Smith)" required />
+            <label for="email" id="email-label">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address (ex: joe@gmail.com)" required />
+            <label for="number" id="number-label">Age (optional)</label>
+            <input type="number" id="number" name="age" min="14" max="100" placeholder="Enter your age (ex: 18)" />
+        </fieldset>
+        <fieldset>
+            <legend>Questions</legend>
+            <!-- Gaming platform preference-->
+            <label for="dropdown">What is your preferred gaming platform?</label>
+            <select id="dropdown">
+                <option value="">Select gaming platform</option>
+                <option value="pc">PC</option>
+                <option value="playstation">Sony PlayStation</option>
+                <option value="xbox">Microsoft Xbox</option>
+                <option value="switch">Nintendo Switch</option>
+            </select>
+            <!-- Most liked from the preferred gaming platform -->
+            <label>What do you like most from your preferred gaming platform?</label>
+            <input type="radio" name="most-liked" id="flexibility" /> <label for="flexibility">Flexibility</label>
+            <input type="radio" name="most-liked" id="high-quality-exclusive-games" /> <label for="high-quality-exclusive-games">High quality exclusive games</label>
+            <input type="radio" name="most-liked" id="ease-of-use" /> <label for="ease-of-use">Ease of use</label>
+            <input type="radio" name="most-liked" id="frequent-game-sales" /> <label for="frequent-game-sales">Frequent game sales</label>
+            <input type="radio" name="most-liked" id="games-variety" /> <label for="games-variety">Games variety</label>
+            <!-- Game genre interests -->
+            <label>What game genres are you interested in?</label>
+            <input type="checkbox" value="action" id="action" /> <label for="action">Action</label>
+            <input type="checkbox" value="action-adventure" id="action-adventure" /> <label for="action-adventure">Action-adventure</label>
+            <input type="checkbox" value="adventure" id="adventure" /> <label for="adventure">Adventure</label>
+            <input type="checkbox" value="puzzle" id="puzzle" /> <label for="puzzle">Puzzle</label>
+            <input type="checkbox" value="role-playing" id="role-playing" /> <label for="role-playing">Role-playing</label>
+            <input type="checkbox" value="simulation" id="simulation" /> <label for="simulation">Simulation</label>
+            <input type="checkbox" value="strategy" id="strategy" /> <label for="strategy">Strategy</label>
+            <input type="checkbox" value="sports" id="sports" /> <label for="sports">Sports</label>
+            <input type="checkbox" value="mmo" id="mmo" /> <label for="mmo">MMO</label>
+            <!-- Upcoming games to play -->
+            <label for="upcoming-games-to-play">What upcoming games do you look forward to play and why?</label>
+            <textarea rows="10" cols="80" id="upcoming-games-to-play" placeholder="I'm looking forward to play ... because ..."></textarea>
+        </fieldset>
+        <input type="submit" value="Submit" id="submit" />
+    </form>
+</main>
+</body>
+</html>
