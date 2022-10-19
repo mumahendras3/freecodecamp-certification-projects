@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="styles.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Survey Form</title>
+    <title>BigOne Game Store Customer Survey</title>
 </head>
 <body>
 <header>
@@ -14,48 +14,61 @@
 <main>
     <form id="survey-form">
         <fieldset>
-            <legend>Personal Information</legend>
-            <label for="name" id="name-label">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name (ex: John Smith)" required />
-            <label for="email" id="email-label">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address (ex: joe@gmail.com)" required />
-            <label for="number" id="number-label">Age (optional)</label>
-            <input type="number" id="number" name="age" min="14" max="100" placeholder="Enter your age (ex: 18)" />
+            <!-- Personal information -->
+            <div class="field">
+                <label for="name" id="name-label">Name</label>
+                <input class="text-box" type="text" id="name" name="name" placeholder="Enter your name (ex: John Smith)" required />
+            </div>
+            <div class="field">
+                <label for="email" id="email-label">Email</label>
+                <input class="text-box" type="email" id="email" name="email" placeholder="Enter your email address (ex: joe@gmail.com)" required />
+            </div>
+            <div class="field">
+                <label for="number" id="number-label">Age (optional)</label>
+                <input class="text-box" type="number" id="number" name="age" min="14" max="100" placeholder="Enter your age (ex: 18)" />
+            </div>
         </fieldset>
         <fieldset>
-            <legend>Questions</legend>
-            <!-- Gaming platform preference-->
-            <label for="dropdown">What is your preferred gaming platform?</label>
-            <select id="dropdown">
-                <option value="">Select gaming platform</option>
-                <option value="pc">PC</option>
-                <option value="playstation">Sony PlayStation</option>
-                <option value="xbox">Microsoft Xbox</option>
-                <option value="switch">Nintendo Switch</option>
-            </select>
+            <!-- Gaming platform preference -->
+            <div class="field">
+                <label for="dropdown">What is your preferred gaming platform?</label>
+                <select class="text-box" id="dropdown">
+                    <option value="">Select gaming platform</option>
+                    <option value="pc">PC</option>
+                    <option value="playstation">Sony PlayStation</option>
+                    <option value="xbox">Microsoft Xbox</option>
+                    <option value="switch">Nintendo Switch</option>
+                </select>
+            </div>
             <!-- Most liked from the preferred gaming platform -->
-            <label>What do you like most from your preferred gaming platform?</label>
-            <input type="radio" name="most-liked" id="flexibility" /> <label for="flexibility">Flexibility</label>
-            <input type="radio" name="most-liked" id="high-quality-exclusive-games" /> <label for="high-quality-exclusive-games">High quality exclusive games</label>
-            <input type="radio" name="most-liked" id="ease-of-use" /> <label for="ease-of-use">Ease of use</label>
-            <input type="radio" name="most-liked" id="frequent-game-sales" /> <label for="frequent-game-sales">Frequent game sales</label>
-            <input type="radio" name="most-liked" id="games-variety" /> <label for="games-variety">Games variety</label>
+            <div class="field">
+                <label>What do you like most from your preferred gaming platform?</label>
+                <label for="flexibility"><input type="radio" name="most-liked" id="flexibility" /> Flexibility</label>
+                <label for="high-quality-exclusive-games"><input type="radio" name="most-liked" id="high-quality-exclusive-games" /> High quality exclusive games</label>
+                <label for="ease-of-use"><input type="radio" name="most-liked" id="ease-of-use" /> Ease of use</label>
+                <label for="frequent-game-sales"><input type="radio" name="most-liked" id="frequent-game-sales" /> Frequent game sales</label>
+                <label for="games-variety"><input type="radio" name="most-liked" id="games-variety" /> Games variety</label>
+            </div>
             <!-- Game genre interests -->
-            <label>What game genres are you interested in?</label>
-            <input type="checkbox" value="action" id="action" /> <label for="action">Action</label>
-            <input type="checkbox" value="action-adventure" id="action-adventure" /> <label for="action-adventure">Action-adventure</label>
-            <input type="checkbox" value="adventure" id="adventure" /> <label for="adventure">Adventure</label>
-            <input type="checkbox" value="puzzle" id="puzzle" /> <label for="puzzle">Puzzle</label>
-            <input type="checkbox" value="role-playing" id="role-playing" /> <label for="role-playing">Role-playing</label>
-            <input type="checkbox" value="simulation" id="simulation" /> <label for="simulation">Simulation</label>
-            <input type="checkbox" value="strategy" id="strategy" /> <label for="strategy">Strategy</label>
-            <input type="checkbox" value="sports" id="sports" /> <label for="sports">Sports</label>
-            <input type="checkbox" value="mmo" id="mmo" /> <label for="mmo">MMO</label>
+            <div class="field">
+                <label>What game genres are you interested in?</label>
+                <label for="action"><input type="checkbox" value="action" id="action" /> Action</label>
+                <label for="action-adventure"><input type="checkbox" value="action-adventure" id="action-adventure" /> Action-adventure</label>
+                <label for="adventure"><input type="checkbox" value="adventure" id="adventure" /> Adventure</label>
+                <label for="puzzle"><input type="checkbox" value="puzzle" id="puzzle" /> Puzzle</label>
+                <label for="role-playing"><input type="checkbox" value="role-playing" id="role-playing" /> Role-playing</label>
+                <label for="simulation"><input type="checkbox" value="simulation" id="simulation" /> Simulation</label>
+                <label for="strategy"><input type="checkbox" value="strategy" id="strategy" /> Strategy</label>
+                <label for="sports"><input type="checkbox" value="sports" id="sports" /> Sports</label>
+                <label for="mmo"><input type="checkbox" value="mmo" id="mmo" /> MMO</label>
+            </div>
             <!-- Upcoming games to play -->
-            <label for="upcoming-games-to-play">What upcoming games do you look forward to play and why?</label>
-            <textarea rows="10" cols="80" id="upcoming-games-to-play" placeholder="I'm looking forward to play ... because ..."></textarea>
+            <div class="field">
+                <label for="upcoming-games-to-play">What upcoming games do you look forward to play and why?</label>
+                <textarea class="text-box" rows="8" id="upcoming-games-to-play" placeholder="I'm looking forward to play ... because ..."></textarea>
+            </div>
         </fieldset>
-        <input type="submit" value="Submit" id="submit" />
+        <input type="submit" value="Submit" class="text-box" id="submit" />
     </form>
 </main>
 </body>

@@ -1,0 +1,76 @@
+/* Make the width property includes padding and border widths  */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove the default margin of the body element set by browsers */
+body {
+    margin: 0;
+    background-color: #3D4D62;
+    color: #F3F3F3;
+    font-family: "Nimbus Sans", sans-serif;
+    font-size: 1.25rem;
+    padding: 20px;
+}
+
+/* Center all contents */
+header, main {
+    min-width: 402px;
+    max-width: 590px;
+    margin: 0 auto;
+}
+
+/* Headers */
+#title {
+    font-family: "Nimbus Sans Narrow", sans-serif;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+#description {
+    font-style: italic;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+/* Display as block-level elements for form inputs and labels */
+label, input, select, textarea {
+    display: block;
+    width: 100%;
+}
+/* Except for checkboxes and radio buttons */
+input[type="checkbox"], input[type="radio"] {
+    display: inline;
+    width: unset;
+}
+
+/* Configure spacing between form elements */
+label {
+    margin-bottom: 8px;
+}
+textarea {
+    margin: 0;
+}
+.field {
+    margin-bottom: 20px;
+}
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Give some padding for form elements that contain texts */
+.text-box {
+    padding: 5px 8px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+}
+
+/* Make the submit button a little bit bigger */
+input[type="submit"] {
+    padding: 12px 0;
+    background-color: #62523D;
+    color: #FFF;
+    font-size: 1.25rem;
+}
