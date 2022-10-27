@@ -1,0 +1,100 @@
+/* Load some Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap');
+
+/* Use a more natural width and height sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Don't let the content get too near the page edges */
+body {
+    margin: 30px;
+    min-width: 300px;
+    font-family: "Space Mono", monospace;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    color: #1b75b3;
+    text-align: center;
+}
+
+/* Per-section styling */
+section p {
+    margin: 0;
+}
+.title-and-image,
+.timeline {
+    margin: 0 0 50px;
+}
+.title-and-image,
+.more-details {
+    text-align: center;
+}
+.title-and-image > p {
+    margin-bottom: 1px;
+}
+.timeline {
+    text-align: left;
+}
+.timeline > h2 {
+    font-size: 1.5em;
+    margin: 0 0 15px;
+}
+.more-details > p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #1b75b3;
+}
+
+/* Remove default margins from figure */
+figure {
+    margin: 0;
+}
+/* Image caption's font size should be smaller than normal text */
+figcaption {
+    font-size: .789em;
+    max-width: 455px;
+    margin: 0 auto;
+}
+
+/* Per-id styling */
+#title {
+    font-family: VT323, monospace;
+    font-size: 3em;
+    margin: 0 0 20px;
+}
+#image {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+}
+#tribute-info {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+#tribute-info > li {
+    max-width: 360px;
+}
+#tribute-info h3 {
+    margin: 0;
+    border-bottom: 3px dotted black;
+    padding: 0 10px 5px;
+    font-size: 18px;
+    text-align: left;
+}
+#tribute-info p {
+    padding: 5px 10px 0;
+    text-align: left;
+}
