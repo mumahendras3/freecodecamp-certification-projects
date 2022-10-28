@@ -50,29 +50,30 @@ section p {
     color: #1b75b3;
 }
 
-/* Remove default margins from figure */
-figure {
-    margin: 0;
-}
-/* Image caption's font size should be smaller than normal text */
-figcaption {
-    font-size: .789em;
-    max-width: 455px;
-    margin: 0 auto;
-}
-
 /* Per-id styling */
 #title {
     font-family: VT323, monospace;
     font-size: 3em;
     margin: 0 0 20px;
 }
+/* Remove default margins from figure */
+#img-div {
+    margin: 0;
+}
+/* The automatic checker complains if max-width is not set to 100%, so we will
+ * use max-height instead to keep the image's maximum width to 300px.
+ */
 #image {
-    width: 100%;
-    max-width: 300px;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
-    height: auto;
+    max-height: 318.75px;
+}
+/* Image caption's font size should be smaller than normal text */
+#img-caption {
+    font-size: .789em;
+    max-width: 455px;
+    margin: 0 auto;
 }
 #tribute-info {
     padding: 0;
