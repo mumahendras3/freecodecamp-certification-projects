@@ -101,12 +101,12 @@
         <p class="short-desc"><b>Remove Slackware packages</b></p>
         <code class="block">removepkg [ --copy ] [ --keep ] [ --preserve ] [ --skip-douninst ] [ --terse ] [ --warn ] packagename</code>
         <p><code><a href="#removepkg">removepkg</a></code> removes a previously installed Slackware package, while writing a progress report to the standard output. A package may be specified either by the full package name (as you'd see listed in <code>/var/lib/pkgtools/packages/</code>), or by the base package name. For example, the package <code>foo-1.0-i586-1.txz</code> may be removed with any of the following commands:</p>
-        <ul>
-          <li><code>removepkg foo-1.0-i586-1.txz</code> (also recognized: <code>.tgz</code>, <code>.tbz</code>, <code>.tlz</code>)</li>
-          <li><code>removepkg foo-1.0-i586-1</code></li>
-          <li><code>removepkg foo.txz</code></li>
-          <li><code>removepkg foo</code></li>
-        </ul>
+        <code class="block">
+          removepkg foo-1.0-i586-1.txz (also recognized: .tgz, .tbz, .tlz)<br>
+          removepkg foo-1.0-i586-1<br>
+          removepkg foo.txz<br>
+          removepkg foo
+        </code>
         <p>When deleting files, <code><a href="#removepkg">removepkg</a></code> will analyze the contents of the other packages installed on your system, and will only delete the files that are unique to the package being removed. Similarly, the installation scripts for all the other packages will be considered when deciding whether or not to delete symbolic links from the package.</p>
         <p>Removing a package (as well as installing one) can be a dangerous undertaking. For this reason, there is the <code>-warn</code> option available. When you use this, <code><a href="#removepkg">removepkg</a></code> will not actually remove any files or links, but will output a detailed report of what it would do if you actually did remove the package. It's suggested that you do this (and maybe pipe the output to less) before removing packages to make sure you've backed up anything that might be important.</p>
         <p>When removing a package, its original file index will be moved from <code>/var/lib/pkgtools/packages</code> to <code>/var/log/pkgtools/removed_packages</code>. Likewise, its installation script will be moved from <code>/var/lib/pkgtools/scripts</code> to <code>/var/log/pkgtools/removed_scripts</code>.</p>
@@ -116,22 +116,28 @@
         <code>ROOT=/mnt removepkg package</code>
         <ul class="options">
           <li>
-            <code class="option">--copy packagename</code>: Construct a copy of the package under <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>, but don't remove it. (same effect as <code>-warn -preserve</code>)
+            <code class="option">--copy packagename</code>
+            <p class="option-desc">Construct a copy of the package under <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>, but don't remove it. (same effect as <code>-warn -preserve</code>)</p>
           </li>
           <li>
-            <code class="option">--keep</code>: Save the intermediate files created by <code><a href="#removepkg">removepkg</a></code> (<code>delete_list</code>, <code>required_files</code>, <code>uniq_list</code>, <code>del_link_list</code>, <code>required_links</code>, <code>required_list</code>). Mostly useful for debugging purposes.
+            <code class="option">--keep</code>
+            <p class="option-desc">Save the intermediate files created by <code><a href="#removepkg">removepkg</a></code> (<code>delete_list</code>, <code>required_files</code>, <code>uniq_list</code>, <code>del_link_list</code>, <code>required_links</code>, <code>required_list</code>). Mostly useful for debugging purposes.</p>
           </li>
           <li>
-            <code class="option">--preserve packagename</code>: If specified, the complete package subtree is reconstructed in <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>.
+            <code class="option">--preserve packagename</code>
+            <p class="option-desc">If specified, the complete package subtree is reconstructed in <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>.</p>
           </li>
           <li>
-            <code class="option">--skip-douninst</code>: Skip running the the uninstall script.
+            <code class="option">--skip-douninst</code>
+            <p class="option-desc">Skip running the the uninstall script.</p>
           </li>
           <li>
-            <code class="option">--terse</code>: Remove the package displaying only a single description line to stdout.
+            <code class="option">--terse</code>
+            <p class="option-desc">Remove the package displaying only a single description line to stdout.</p>
           </li>
           <li>
-            <code class="option">--warn packagename</code>: Generate a report to the standard output about which files and directories would be removed, but does not actually remove the package.
+            <code class="option">--warn packagename</code>
+            <p class="option-desc">Generate a report to the standard output about which files and directories would be removed, but does not actually remove the package.</p>
           </li>
         </ul>
       </section>
