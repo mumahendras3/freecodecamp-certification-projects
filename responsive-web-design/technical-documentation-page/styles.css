@@ -1,7 +1,56 @@
+/* Load some Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap');
+
 html {
   box-sizing: border-box;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
+}
+
+/* Reset body margins */
+body {
+    margin: 20px;
+    min-width: 320px;
+}
+
+/* Styling navigation bar */
+#navbar h1 {
+    text-align: center;
+/*     font-family: VT323; */
+}
+ul.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    justify-content: center;
+}
+@media (max-width: 663px) {
+    ul.nav-links {
+        width: 320px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 810px) {
+    body {
+        margin: 20px 20px 20px calc(117.35px + 20px);
+    }
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 117.35px;
+        padding-left: 20px;
+    }
+    #navbar h1 {
+        text-align: left;
+    }
+    ul.nav-links {
+        flex-direction: column;
+        justify-content: unset;
+    }
 }
