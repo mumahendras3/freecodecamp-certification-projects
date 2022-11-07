@@ -10,7 +10,7 @@
     <main id="main-doc">
       <nav id="navbar">
         <header><h1>cpkgtools Documentation</h1></header>
-        <ul>
+        <ul class="nav-links">
           <li><a class="nav-link" href="#Introduction">Introduction</a></li>
           <li><a class="nav-link" href="#installpkg">installpkg</a></li>
           <li><a class="nav-link" href="#removepkg">removepkg</a></li>
@@ -40,19 +40,55 @@
         <p class="short-desc"><b>Install Slackware packages</b></p>
         <code class="block">installpkg [ --warn ] [ --md5sum ] [ --root /otherroot ] [ --infobox ] [ --menu ] [ --terse ] [ --terselength &lt;length&gt; ] [ --ask ] [ --priority ADD|REC|OPT|SKP ] [ --tagfile /somedir/tag‐file ] [ --threads &lt;number&gt; ] [ --no-overwrite ] packagename [ packagename2 ... ]</code>
         <p><code><a href="#installpkg">installpkg</a></code> installs single or multiple <code>*.txz</code> (or <code>.tbz</code>, <code>.tgz</code>, <code>.tlz</code>) binary packages designed for use with the Slackware Linux distribution onto your system.</p>
-        <ul>
-          <li><code>--warn packagename</code>: Generate a list of files that would be overwritten to the standard output, but do not actually install the package. The list is formatted in a suitable fashion to use as a list of files to backup.</li>
-          <li><code>--md5sum packagename</code>: Record the package md5sum in the metadata written in <code>/var/lib/pkgtools/packages</code>.</li>
-          <li><code>--root /otherroot</code>: Install using a location other than <code>/</code> (the default) as the root of the filesystem to install on. In the example given, use <code>/otherroot</code> instead. Setting the <code>ROOT</code> environment variable does the same thing.</li>
-          <li><code>--infobox</code>: Use <code>/bin/dialog</code> to display an informational dialog as the package is installed. Primarily used when <code><a href="#installpkg">installpkg</a></code> is called from other scripts.</li>
-          <li><code>--menu</code>: Use <code>/bin/dialog</code> to display a menu asking the user if they would like to install the package(s) or not. Generally used when <code><a href="#installpkg">installpkg</a></code> is called from other scripts.</li>
-          <li><code>--terse</code>: Install the package displaying only a single description line to stdout.</li>
-          <li><code>--terselength &lt;length&gt;</code>: Maximum line length of <code>--terse</code> mode output. Default is the number of terminal columns.</li>
-          <li><code>--ask</code>: Used with <code>--menu</code> mode. When selected, always ask if a package should be installed regardless of what the package's priority is.</li>
-          <li><code>--priority ADD|REC|OPT|SKP</code>: When installing with the <code>--menu</code> option, package priority levels (found in the file <code>tagfile</code> in the package directory) are used to automatically install (ADD) or skip (SKP) a package, or to suggest recommended (REC) or optional (OPT) to the user if a menu is displayed. If a priority is set on the command line, it will override the values set in the <code>tagfile</code> for the entire package list.</li>
-          <li><code>--tagfile /somedir/tagfile</code>: Specify a different file to use for package priorities (in this example, <code>/somedir/tagfile</code> will be used). The default is <code>tagfile</code> in the package's directory.</li>
-          <li><code>--threads &lt;number&gt;</code>: For <code>xz</code>/<code>plzip</code> compressed packages, set the maximum number of threads to be used for decompression. Only has an effect if a multithreaded compressor was used, and then only on large packages. The default for <code>plzip</code> is the number of CPU threads available. The default for <code>xz</code> is 2.</li>
-          <li><code>--no-overwrite</code>: When extracting the package, do not overwrite existing files. Usually, this option should not be used. It exists so that upgradepkg can use it for the second installation pass. The first pass has already overwritten the previous package's files, and this will catch the few corner cases without generating unnecessary writes.</li>
+        <ul class="options">
+          <li>
+            <code class="option">--warn packagename</code>
+            <p class="option-desc">Generate a list of files that would be overwritten to the standard output, but do not actually install the package. The list is formatted in a suitable fashion to use as a list of files to backup.</p>
+          </li>
+          <li>
+            <code class="option">--md5sum packagename</code>
+            <p class="option-desc">Record the package md5sum in the metadata written in <code>/var/lib/pkgtools/packages</code>.</p>
+          </li>
+          <li>
+            <code class="option">--root /otherroot</code>
+            <p class="option-desc">Install using a location other than <code>/</code> (the default) as the root of the filesystem to install on. In the example given, use <code>/otherroot</code> instead. Setting the <code>ROOT</code> environment variable does the same thing.</p>
+          </li>
+          <li>
+            <code class="option">--infobox</code>
+            <p class="option-desc">Use <code>/bin/dialog</code> to display an informational dialog as the package is installed. Primarily used when <code><a href="#installpkg">installpkg</a></code> is called from other scripts.</p>
+          </li>
+          <li>
+            <code class="option">--menu</code>
+            <p class="option-desc">Use <code>/bin/dialog</code> to display a menu asking the user if they would like to install the package(s) or not. Generally used when <code><a href="#installpkg">installpkg</a></code> is called from other scripts.</p>
+          </li>
+          <li>
+            <code class="option">--terse</code>
+            <p class="option-desc">Install the package displaying only a single description line to stdout.</p>
+          </li>
+          <li>
+            <code class="option">--terselength &lt;length&gt;</code>
+            <p class="option-desc">Maximum line length of <code>--terse</code> mode output. Default is the number of terminal columns.</p>
+          </li>
+          <li>
+            <code class="option">--ask</code>
+            <p class="option-desc">Used with <code>--menu</code> mode. When selected, always ask if a package should be installed regardless of what the package's priority is.</p>
+          </li>
+          <li>
+            <code class="option">--priority ADD|REC|OPT|SKP</code>
+            <p class="option-desc">When installing with the <code>--menu</code> option, package priority levels (found in the file <code>tagfile</code> in the package directory) are used to automatically install (ADD) or skip (SKP) a package, or to suggest recommended (REC) or optional (OPT) to the user if a menu is displayed. If a priority is set on the command line, it will override the values set in the <code>tagfile</code> for the entire package list.</p>
+          </li>
+          <li>
+            <code class="option">--tagfile /somedir/tagfile</code>
+            <p class="option-desc">Specify a different file to use for package priorities (in this example, <code>/somedir/tagfile</code> will be used). The default is <code>tagfile</code> in the package's directory.</p>
+          </li>
+          <li>
+            <code class="option">--threads &lt;number&gt;</code>
+            <p class="option-desc">For <code>xz</code>/<code>plzip</code> compressed packages, set the maximum number of threads to be used for decompression. Only has an effect if a multithreaded compressor was used, and then only on large packages. The default for <code>plzip</code> is the number of CPU threads available. The default for <code>xz</code> is 2.</p>
+          </li>
+          <li>
+            <code class="option">--no-overwrite</code>
+            <p class="option-desc">When extracting the package, do not overwrite existing files. Usually, this option should not be used. It exists so that upgradepkg can use it for the second installation pass. The first pass has already overwritten the previous package's files, and this will catch the few corner cases without generating unnecessary writes.</p>
+          </li>
         </ul>
         <p>Examples:</p>
         <code class="block">installpkg font-bh-ttf-1.0.3-noarch-1.txz</code>
@@ -63,7 +99,7 @@
       <section class="main-section" id="removepkg">
         <header><h2>removepkg</h2></header>
         <p class="short-desc"><b>Remove Slackware packages</b></p>
-        <code class="block">[ ROOT=/mnt ] removepkg [ --copy ] [ --keep ] [ --preserve ] [ --skip-douninst ] [ --terse ] [ --warn ] packagename</code>
+        <code class="block">removepkg [ --copy ] [ --keep ] [ --preserve ] [ --skip-douninst ] [ --terse ] [ --warn ] packagename</code>
         <p><code><a href="#removepkg">removepkg</a></code> removes a previously installed Slackware package, while writing a progress report to the standard output. A package may be specified either by the full package name (as you'd see listed in <code>/var/lib/pkgtools/packages/</code>), or by the base package name. For example, the package <code>foo-1.0-i586-1.txz</code> may be removed with any of the following commands:</p>
         <ul>
           <li><code>removepkg foo-1.0-i586-1.txz</code> (also recognized: <code>.tgz</code>, <code>.tbz</code>, <code>.tlz</code>)</li>
@@ -76,14 +112,27 @@
         <p>When removing a package, its original file index will be moved from <code>/var/lib/pkgtools/packages</code> to <code>/var/log/pkgtools/removed_packages</code>. Likewise, its installation script will be moved from <code>/var/lib/pkgtools/scripts</code> to <code>/var/log/pkgtools/removed_scripts</code>.</p>
         <p><code><a href="#removepkg">removepkg</a></code> supports <code>/bin/sh</code> compatible uninstall scripts. If the package shipped with an uninstall script, it will be run after the package is removed. If present, the uninstall script resides in the <code>/var/lib/pkgtools/douninst.sh/</code> directory and has the same full name as the package (without the extension). For example, a package named <code>foo-1.0-noarch-1.txz</code> might contain an uninstall script named: <code>/var/lib/pkgtools/douninst.sh/foo-1.0-noarch-1</code></p>
         <p>A package's uninstall script may either ship directly in <code>/var/lib/pkgtools/douninst.sh/</code> as the correctly-named file, or it may ship as <code>/install/douninst.sh</code>. In the latter case, it will be renamed and placed in <code>/var/lib/pkgtools/douninst.sh/</code> by <code><a href="#installpkg">installpkg</a></code>.</p>
-        <ul>
-          <li><code>--copy packagename</code>: Construct a copy of the package under <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>, but don't remove it. (same effect as <code>-warn -preserve</code>)</li>
-          <li><code>--keep</code>: Save the intermediate files created by <code><a href="#removepkg">removepkg</a></code> (<code>delete_list</code>, <code>required_files</code>, <code>uniq_list</code>, <code>del_link_list</code>, <code>required_links</code>, <code>required_list</code>). Mostly useful for debugging purposes.</li>
-          <li><code>--preserve packagename</code>: If specified, the complete package subtree is reconstructed in <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>.</li>
-          <li><code>--skip-douninst</code>: Skip running the the uninstall script.</li>
-          <li><code>--terse</code>: Remove the package displaying only a single description line to stdout.</li>
-          <li><code>--warn packagename</code>: Generate a report to the standard output about which files and directories would be removed, but does not actually remove the package.</li>
-          <li>It's possible to remove a package from a filesystem other than <code>/</code> by supplying <code><a href="#removepkg">removepkg</a></code> with a <code>ROOT</code> environment variable: <code>ROOT=/mnt removepkg package</code></li>
+        <p>It's possible to remove a package from a filesystem other than <code>/</code> (such as <code>/mnt</code>) by supplying <code><a href="#removepkg">removepkg</a></code> with a <code>ROOT</code> environment variable:</p>
+        <code>ROOT=/mnt removepkg package</code>
+        <ul class="options">
+          <li>
+            <code class="option">--copy packagename</code>: Construct a copy of the package under <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>, but don't remove it. (same effect as <code>-warn -preserve</code>)
+          </li>
+          <li>
+            <code class="option">--keep</code>: Save the intermediate files created by <code><a href="#removepkg">removepkg</a></code> (<code>delete_list</code>, <code>required_files</code>, <code>uniq_list</code>, <code>del_link_list</code>, <code>required_links</code>, <code>required_list</code>). Mostly useful for debugging purposes.
+          </li>
+          <li>
+            <code class="option">--preserve packagename</code>: If specified, the complete package subtree is reconstructed in <code>/var/lib/pkgtools/setup/tmp/preserved_packages/packagename</code>.
+          </li>
+          <li>
+            <code class="option">--skip-douninst</code>: Skip running the the uninstall script.
+          </li>
+          <li>
+            <code class="option">--terse</code>: Remove the package displaying only a single description line to stdout.
+          </li>
+          <li>
+            <code class="option">--warn packagename</code>: Generate a report to the standard output about which files and directories would be removed, but does not actually remove the package.
+          </li>
         </ul>
       </section>
       <section class="main-section" id="makepkg">
@@ -91,14 +140,35 @@
         <p class="short-desc"><b>Make Slackware packages</b></p>
         <code class="block">makepkg [ -l, --linkadd y|n ] [ -c, --chown y|n ] [ --threads &lt;number&gt; ] [ --compress &lt;option&gt; ] [ --acls ] [ --xattrs ] packagename</code>
         <p><code><a href="#makepkg">makepkg</a></code> creates a new Slackware compatible package. The package is constructed using the contents of the current directory and all subdirectories. If symbolic links exist, they will be converted to script code to recreate them when the package is installed. This code will be appended to the primary installation script (<code>install/doinst.sh</code>), or, if that script does not exist it will be created with those contents. The package will be written out to the file <code>packagename</code> which should be the full name, including the extension. This is usually <code>.txz</code>, but <code>.tgz</code>, <code>.tbz</code>, and <code>.tlz</code> are also accepted. The proper compression utility (<code>xz</code>, <code>gzip</code>, <code>bzip2</code>, or <code>lzip</code>) needs to be installed on the machine.</p>
-        <ul>
-          <li><code>-l, --linkadd y|n</code>: If <code>y</code>, add any symbolic links found to the install script (<code>doinst.sh</code>) and delete them. This is the recommended action. If this option is not used, <code><a href="#makepkg">makepkg</a></code> will prompt if symbolic links are found.</li>
-          <li><code>-p, --prepend</code>: If this option is given, then any symbolic links added to <code>doinst.sh</code> will be prepended to the existing script. This is useful for packages that contain shared libraries that need to be linked first because programs will use them later in the <code>doinst.sh</code> script.</li>
-          <li><code>-c, --chown y|n</code>: If <code>y</code>, <code><a href="#makepkg">makepkg</a></code> will reset all directory permissions to 755 and ownership to root:root. In general, you should have the permissions and ownerships worked out yourself, so relying on setting this option to <code>y</code> is somewhat sloppy. It is not the default. If an option is not provided, <code><a href="#makepkg">makepkg</a></code> will prompt.</li>
-          <li><code>--threads &lt;number&gt;</code>: For <code>xz</code>/<code>plzip</code> compressed packages, set the maximum number of threads to be used for compression. Only has an effect on large packages. For <code>plzip</code>, the default is the number of CPU threads available. For <code>xz</code>, the default is 2 (due to commonly occuring memory related failures on 32-bit with too many threads and multithreaded <code>xz</code> compression).</li>
-          <li><code>--compress &lt;option&gt;</code>: Supply a custom option to the compressor. This will be used in place of the default, which is: <code>-9</code></li>
-          <li><code>--acls</code>: Support storing POSIX ACLs in the package. The resulting package will not be compatible with <code>pkgtools</code> version &lt; 15.0.</li>
-          <li><code>--xattrs</code>: Support storing extended attributes in the package. The resulting package will not be compatible with <code>pkgtools</code> version &lt; 15.0.</li>
+        <ul class="options">
+          <li>
+            <code class="option">-l, --linkadd y|n</code>
+            <p class="option-desc">If <code>y</code>, add any symbolic links found to the install script (<code>doinst.sh</code>) and delete them. This is the recommended action. If this option is not used, <code><a href="#makepkg">makepkg</a></code> will prompt if symbolic links are found.</p>
+          </li>
+          <li>
+            <code class="option">-p, --prepend</code>
+            <p class="option-desc">If this option is given, then any symbolic links added to <code>doinst.sh</code> will be prepended to the existing script. This is useful for packages that contain shared libraries that need to be linked first because programs will use them later in the <code>doinst.sh</code> script.</p>
+          </li>
+          <li>
+            <code class="option">-c, --chown y|n</code>
+            <p class="option-desc">If <code>y</code>, <code><a href="#makepkg">makepkg</a></code> will reset all directory permissions to 755 and ownership to root:root. In general, you should have the permissions and ownerships worked out yourself, so relying on setting this option to <code>y</code> is somewhat sloppy. It is not the default. If an option is not provided, <code><a href="#makepkg">makepkg</a></code> will prompt.</p>
+          </li>
+          <li>
+            <code class="option">--threads &lt;number&gt;</code>
+            <p class="option-desc">For <code>xz</code>/<code>plzip</code> compressed packages, set the maximum number of threads to be used for compression. Only has an effect on large packages. For <code>plzip</code>, the default is the number of CPU threads available. For <code>xz</code>, the default is 2 (due to commonly occuring memory related failures on 32-bit with too many threads and multithreaded <code>xz</code> compression).</p>
+          </li>
+          <li>
+            <code class="option">--compress &lt;option&gt;</code>
+            <p class="option-desc">Supply a custom option to the compressor. This will be used in place of the default, which is: <code>-9</code></p>
+          </li>
+          <li>
+            <code class="option">--acls</code>
+            <p class="option-desc">Support storing POSIX ACLs in the package. The resulting package will not be compatible with <code>pkgtools</code> version &lt; 15.0.</p>
+          </li>
+          <li>
+            <code class="option">--xattrs</code>
+            <p class="option-desc">Support storing extended attributes in the package. The resulting package will not be compatible with <code>pkgtools</code> version &lt; 15.0.</p>
+          </li>
         </ul>
       </section>
       <section class="main-section" id="explodepkg">
@@ -116,13 +186,31 @@
         <p>If <code><a href="#upgradepkg">upgradepkg</a></code> finds more than one installed package matching the old package's name, it will remove them all.</p>
         <p>To upgrade in a directory other than <code>/</code> (such as <code>/mnt</code>):</p>
         <code class="block">ROOT=/mnt upgradepkg package.txz (or .tbz, .tgz, .tlz)</code>
-        <ul>
-          <li><code>--dry-run</code>: Output a report about which packages would be installed or upgraded but don't actually perform the upgrades.</li>
-          <li><code>--install-new</code>: Normally <code><a href="#upgradepkg">upgradepkg</a></code> only upgrades packages that are already installed on the system, and will skip any packages that do not already have a version installed. If <code>--install-new</code> is specified, the behavior is modified to install new packages in addition to upgrading existing ones.</li>
-          <li><code>--reinstall</code>: <code><a href="#upgradepkg">upgradepkg</a></code> usually skips packages if the exact same package (matching name, version, arch, and build number) is already installed on the system. Use the <code>--reinstall</code> option if you want to upgrade all packages even if the same version is already installed.</li>
-          <li><code>--terse</code>: Upgrade the package displaying only a single description line to stdout.</li>
-          <li><code>--terselength &lt;length&gt;</code>: Maximum line length of <code>--terse</code> mode output. Default is the number of terminal columns.</li>
-          <li><code>--verbose</code>: Show all the gory details of the upgrade.</li>
+        <ul class="options">
+          <li>
+            <code class="option">--dry-run</code>
+            <p class="option-desc">Output a report about which packages would be installed or upgraded but don't actually perform the upgrades.</p>
+          </li>
+          <li>
+            <code class="option">--install-new</code>
+            <p class="option-desc">Normally <code><a href="#upgradepkg">upgradepkg</a></code> only upgrades packages that are already installed on the system, and will skip any packages that do not already have a version installed. If <code>--install-new</code> is specified, the behavior is modified to install new packages in addition to upgrading existing ones.</p>
+          </li>
+          <li>
+            <code class="option">--reinstall</code>
+            <p class="option-desc"><code><a href="#upgradepkg">upgradepkg</a></code> usually skips packages if the exact same package (matching name, version, arch, and build number) is already installed on the system. Use the <code>--reinstall</code> option if you want to upgrade all packages even if the same version is already installed.</p>
+          </li>
+          <li>
+            <code class="option">--terse</code>
+            <p class="option-desc">Upgrade the package displaying only a single description line to stdout.</p>
+          </li>
+          <li>
+            <code class="option">--terselength &lt;length&gt;</code>
+            <p class="option-desc">Maximum line length of <code>--terse</code> mode output. Default is the number of terminal columns.</p>
+          </li>
+          <li>
+            <code class="option">--verbose</code>
+            <p class="option-desc">Show all the gory details of the upgrade.</p>
+          </li>
         </ul>
       </section>
       <section class="main-section" id="pkgtool">
@@ -131,14 +219,35 @@
         <code class="block">pkgtool [ --sets #A#B#C# ] [ --source_mounted ] [ --ignore_tagfiles ] [ --tagfile tagfile ] [ --source_dir directory ] [ --target_dir directory ] [ --source_device device ]</code>
         <p><code><a href="#pkgtool">pkgtool</a></code> is a menu-driven package maintenance tool provided with the Slackware Linux distribution. It allows the user to install, remove, or view software packages through an interactive system. <code><a href="#pkgtool">pkgtool</a></code> can also be used to re-run the menu-driven scripts normally executed at the end of a Slackware installation. This is useful for doing basic reconfiguration (like changing the mouse type).</p>
         <p>Most users will not want to use any options when running <code><a href="#pkgtool">pkgtool</a></code>. These are generally used only when <code><a href="#pkgtool">pkgtool</a></code> is run during the initial system installation. Feel free to try them, but be careful.</p>
-        <ul>
-          <li><code>--sets #A#B#C#</code>: Install the disk sets <code>A</code>, <code>B</code>, <code>C</code>. Separate the disk set names by <code>#</code> symbols.</li>
-          <li><code>--source_mounted</code>: When this flag is present, <code><a href="#pkgtool">pkgtool</a></code> will not attempt to unmount and remount the source device with each disk.</li>
-          <li><code>--ignore_tagfiles</code>: When this flag is present, <code><a href="#pkgtool">pkgtool</a></code> will install every package encountered no matter what the tagfiles say.</li>
-          <li><code>--tagfile tagfile</code>: This flag is used to specify from the command line which tagfile should be used for the installation.</li>
-          <li><code>--source_dir directory</code>: Used when installing multiple packages from disk sets. This is the directory in which the subdirectories for each disk are found. This isn't used when installing from floppy.</li>
-          <li><code>--target_dir directory</code>: The directory where the target root directory is located. This is <code>/</code> when installing on the hard drive, or typically <code>/mnt</code> when installing from an install disk.</li>
-          <li><code>--source_device device</code>: The source device to install from. This is not used if you've provided the <code>--source_mounted</code> flag. It's usually used when installing from floppy, as in: <code>--source_device /dev/fd0u1440</code> or <code>--source_device /dev/fd1h1200</code>.</li>
+        <ul class="options">
+          <li>
+            <code class="option">--sets #A#B#C#</code>
+            <p class="option-desc">Install the disk sets <code>A</code>, <code>B</code>, <code>C</code>. Separate the disk set names by <code>#</code> symbols.</p>
+          </li>
+          <li>
+            <code class="option">--source_mounted</code>
+            <p class="option-desc">When this flag is present, <code><a href="#pkgtool">pkgtool</a></code> will not attempt to unmount and remount the source device with each disk.</p>
+          </li>
+          <li>
+            <code class="option">--ignore_tagfiles</code>
+            <p class="option-desc">When this flag is present, <code><a href="#pkgtool">pkgtool</a></code> will install every package encountered no matter what the tagfiles say.</p>
+          </li>
+          <li>
+            <code class="option">--tagfile tagfile</code>
+            <p class="option-desc">This flag is used to specify from the command line which tagfile should be used for the installation.</p>
+          </li>
+          <li>
+            <code class="option">--source_dir directory</code>
+            <p class="option-desc">Used when installing multiple packages from disk sets. This is the directory in which the subdirectories for each disk are found. This isn't used when installing from floppy.</p>
+          </li>
+          <li>
+            <code class="option">--target_dir directory</code>
+            <p class="option-desc">The directory where the target root directory is located. This is <code>/</code> when installing on the hard drive, or typically <code>/mnt</code> when installing from an install disk.</p>
+          </li>
+          <li>
+            <code class="option">--source_device device</code>
+            <p class="option-desc">The source device to install from. This is not used if you've provided the <code>--source_mounted</code> flag. It's usually used when installing from floppy, as in: <code>--source_device /dev/fd0u1440</code> or <code>--source_device /dev/fd1h1200</code>.</p>
+          </li>
         </ul>
       </section>
       <section class="main-section" id="pkgdiff">
@@ -146,10 +255,19 @@
         <p class="short-desc"><b>Compare the file contents of two packages</b></p>
         <code class="block">pkgdiff [ --help ] [ -c ] [ -a ] packagename packagename2</code>
         <p><code><a href="#pkgdiff">pkgdiff</a></code> displays the differences in the files contained in two packages. This works with plain <code>.tar</code>, Slackware packages (<code>.tgz</code>, <code>.tbz</code>, <code>.tlz</code>, <code>.txz</code>), <code>.rpm</code>, and <code>.deb</code>. By default, the results will be displayed in a tree-style unified diff format.</p>
-        <ul>
-          <li><code>--help</code>: Display help for using the <code><a href="#pkgdiff">pkgdiff</a></code> utility.</li>
-          <li><code>-c</code>: Colorize the tree-style output a-la <code>DIR_COLORS</code>. If piping to a pager such as less, you'll need to enable displaying raw data. For example: <code>pkgdiff -c package-1.0-i586-1.txz package-2.0-i586-1.txz | less -r</code></li>
-          <li><code>-a</code>: Instead of a tree-style output format, generate a simple unified diff of the package file lists.</li>
+        <ul class="options">
+          <li>
+            <code class="option">--help</code>
+            <p class="option-desc">Display help for using the <code><a href="#pkgdiff">pkgdiff</a></code> utility.</p>
+          </li>
+          <li>
+            <code class="option">-c</code>
+            <p class="option-desc">Colorize the tree-style output a-la <code>DIR_COLORS</code>. If piping to a pager such as less, you'll need to enable displaying raw data. For example: <code>pkgdiff -c package-1.0-i586-1.txz package-2.0-i586-1.txz | less -r</code></p>
+          </li>
+          <li>
+            <code class="option">-a</code>
+            <p class="option-desc">Instead of a tree-style output format, generate a simple unified diff of the package file lists.</p>
+          </li>
         </ul>
         <p>Examples:</p>
         <code class="block">pkgdiff package-1.0-i586-1.txz package-2.0-i586-1.txz | less</code>
