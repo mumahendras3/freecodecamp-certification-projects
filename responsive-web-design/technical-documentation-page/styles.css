@@ -22,10 +22,6 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
-header {
-    margin: 0 0 15px 0;
-}
-
 h1,
 h2 {
     margin: 0;
@@ -33,6 +29,10 @@ h2 {
 
 header h2 {
     margin-bottom: 10px;
+}
+/* Only "Introduction" doesn't have p.short-desc so this is needed */
+#Introduction header h2 {
+    margin-bottom: 15px;
 }
 
 p,
@@ -92,26 +92,28 @@ p.option-desc {
     margin: 0 0 30px 0;
     font-size: .9em;
 }
-#navbar header {
-    margin: 0 0 15px 0;
-}
-#navbar h1 {
+#navbar header h1 {
     font-weight: 600;
     text-align: center;
+    margin: 0 0 15px 0;
 }
 ul.nav-links {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     gap: 15px;
     justify-content: center;
 }
-@media (max-width: 663px) {
+@media (max-width: calc(740px - 1px)) {
     ul.nav-links {
-        width: 320px;
-        margin: 0 auto;
+        width: 358px;
+    }
+}
+@media (max-width: calc(398px - 1px)) {
+    ul.nav-links {
+        width: 275px;
     }
 }
 @media (min-width: 810px) {

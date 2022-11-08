@@ -22,7 +22,9 @@
         </ul>
       </nav>
       <section class="main-section" id="Introduction">
-        <header><h2>Introduction</h2></header>
+        <header>
+          <h2>Introduction</h2>
+        </header>
         <p><code>cpkgtools</code> is basically Slackware's <code>pkgtools</code> rewritten in C. It provides drop-in replacements for the command line utilities included in <code>pkgtools</code>:</p>
         <ul>
           <li><code><a href="#installpkg">installpkg</a></code></li>
@@ -38,8 +40,8 @@
       <section class="main-section" id="installpkg">
         <header>
           <h2>installpkg</h2>
-          <p class="short-desc"><b>Install Slackware packages</b></p>
         </header>
+        <p class="short-desc"><b>Install Slackware packages</b></p>
         <code class="block">installpkg [ --warn ] [ --md5sum ] [ --root /otherroot ] [ --infobox ] [ --menu ] [ --terse ] [ --terselength &lt;length&gt; ] [ --ask ] [ --priority ADD|REC|OPT|SKP ] [ --tagfile /somedir/tag‐file ] [ --threads &lt;number&gt; ] [ --no-overwrite ] packagename [ packagename2 ... ]</code>
         <p><code><a href="#installpkg">installpkg</a></code> installs single or multiple <code>*.txz</code> (or <code>.tbz</code>, <code>.tgz</code>, <code>.tlz</code>) binary packages designed for use with the Slackware Linux distribution onto your system.</p>
         <ul class="options">
@@ -101,8 +103,8 @@
       <section class="main-section" id="removepkg">
         <header>
           <h2>removepkg</h2>
-          <p class="short-desc"><b>Remove Slackware packages</b></p>
         </header>
+        <p class="short-desc"><b>Remove Slackware packages</b></p>
         <code class="block">removepkg [ --copy ] [ --keep ] [ --preserve ] [ --skip-douninst ] [ --terse ] [ --warn ] packagename</code>
         <p><code><a href="#removepkg">removepkg</a></code> removes a previously installed Slackware package, while writing a progress report to the standard output. A package may be specified either by the full package name (as you'd see listed in <code>/var/lib/pkgtools/packages/</code>), or by the base package name. For example, the package <code>foo-1.0-i586-1.txz</code> may be removed with any of the following commands:</p>
         <code class="block">
@@ -148,8 +150,8 @@
       <section class="main-section" id="makepkg">
         <header>
           <h2>makepkg</h2>
-          <p class="short-desc"><b>Make Slackware packages</b></p>
         </header>
+        <p class="short-desc"><b>Make Slackware packages</b></p>
         <code class="block">makepkg [ -l, --linkadd y|n ] [ -c, --chown y|n ] [ --threads &lt;number&gt; ] [ --compress &lt;option&gt; ] [ --acls ] [ --xattrs ] packagename</code>
         <p><code><a href="#makepkg">makepkg</a></code> creates a new Slackware compatible package. The package is constructed using the contents of the current directory and all subdirectories. If symbolic links exist, they will be converted to script code to recreate them when the package is installed. This code will be appended to the primary installation script (<code>install/doinst.sh</code>), or, if that script does not exist it will be created with those contents. The package will be written out to the file <code>packagename</code> which should be the full name, including the extension. This is usually <code>.txz</code>, but <code>.tgz</code>, <code>.tbz</code>, and <code>.tlz</code> are also accepted. The proper compression utility (<code>xz</code>, <code>gzip</code>, <code>bzip2</code>, or <code>lzip</code>) needs to be installed on the machine.</p>
         <ul class="options">
@@ -186,16 +188,16 @@
       <section class="main-section" id="explodepkg">
         <header>
           <h2>explodepkg</h2>
-          <p class="short-desc"><b>Extract the contents of a <code>tar+compression</code> package (such as a Slackware software package) in the current directory</b></p>
         </header>
+        <p class="short-desc"><b>Extract the contents of a <code>tar+compression</code> package (such as a Slackware software package) in the current directory</b></p>
         <code class="block">explodepkg package [ package2, package3, ... ]</code>
         <p><code><a href="#explodepkg">explodepkg</a></code> uncompresses and untars Slackware <code>*.tgz</code> (or <code>.tbz</code>, <code>.tlz</code>, <code>.txz</code>) packages (or any archive that was created by compressing a tarfile with one of the supported compression utilities) in the current directory. It is not usually used to install packages, since it doesn't execute the installation scripts in <code>./install</code> or <code>./var/lib/pkgtools/setup</code>. The primary use for <code><a href="#explodepkg">explodepkg</a></code> is in package maintenance - exploding a package in a subdirectory, making fixes to it or upgrading the software, and then building the updated package with <code><a href="#makepkg">makepkg</a></code>.</p>
       </section>
       <section class="main-section" id="upgradepkg">
         <header>
           <h2>upgradepkg</h2>
-          <p class="short-desc"><b>Upgrade Slackware packages</b></p>
         </header>
+        <p class="short-desc"><b>Upgrade Slackware packages</b></p>
         <code class="block">upgradepkg [ --dry-run ] [ --install-new ] [ --reinstall ] [ --terse ] [ --terselength &lt;length&gt; ] [ --verbose ] [oldpackagename%]newpackagename [ [oldpackagename2%]newpackagename2 ... ]</code>
         <p><code><a href="#upgradepkg">upgradepkg</a></code> upgrades a Slackware package from an older version to a newer one. It does this by <b>installing</b> the new package onto the system, and then <b>removing</b> any files from the old package that aren't in the new package. If the old and new packages have the same name, a single argument is all that is required. If the packages have different names, supply the name of the old package followed by a percent symbol (<code>%</code>), then the name of the new package. Do not add any extra whitespace between pairs of old/new package names.</p>
         <p>Before upgrading a package, save any configuration files (such as in <code>/etc</code>) that you wish to keep. Sometimes these will be preserved, but it depends on the package structure. If you want to force new versions of the config files to be installed, remove the old ones manually prior to running <code><a href="#upgradepkg">upgradepkg</a></code>.</p>
@@ -232,8 +234,8 @@
       <section class="main-section" id="pkgtool">
         <header>
           <h2>pkgtool</h2>
-          <p class="short-desc"><b>Software package maintenance tool</b></p>
         </header>
+        <p class="short-desc"><b>Software package maintenance tool</b></p>
         <code class="block">pkgtool [ --sets #A#B#C# ] [ --source_mounted ] [ --ignore_tagfiles ] [ --tagfile tagfile ] [ --source_dir directory ] [ --target_dir directory ] [ --source_device device ]</code>
         <p><code><a href="#pkgtool">pkgtool</a></code> is a menu-driven package maintenance tool provided with the Slackware Linux distribution. It allows the user to install, remove, or view software packages through an interactive system. <code><a href="#pkgtool">pkgtool</a></code> can also be used to re-run the menu-driven scripts normally executed at the end of a Slackware installation. This is useful for doing basic reconfiguration (like changing the mouse type).</p>
         <p>Most users will not want to use any options when running <code><a href="#pkgtool">pkgtool</a></code>. These are generally used only when <code><a href="#pkgtool">pkgtool</a></code> is run during the initial system installation. Feel free to try them, but be careful.</p>
@@ -271,8 +273,8 @@
       <section class="main-section" id="pkgdiff">
         <header>
           <h2>pkgdiff</h2>
-          <p class="short-desc"><b>Compare the file contents of two packages</b></p>
         </header>
+        <p class="short-desc"><b>Compare the file contents of two packages</b></p>
         <code class="block">pkgdiff [ --help ] [ -c ] [ -a ] packagename packagename2</code>
         <p><code><a href="#pkgdiff">pkgdiff</a></code> displays the differences in the files contained in two packages. This works with plain <code>.tar</code>, Slackware packages (<code>.tgz</code>, <code>.tbz</code>, <code>.tlz</code>, <code>.txz</code>), <code>.rpm</code>, and <code>.deb</code>. By default, the results will be displayed in a tree-style unified diff format.</p>
         <ul class="options">
