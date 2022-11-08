@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    margin: 20px;
+    margin: 15px;
     min-width: 320px;
     font-family: Montserrat, sans-serif;
 }
@@ -118,13 +118,13 @@ ul.nav-links {
 }
 @media (min-width: 810px) {
     body {
-        margin: 20px 20px 20px calc(2 * 20px + 109.6px);
+        margin: 15px 15px 15px calc(2 * 15px + 109.6px);
     }
     #navbar {
         position: fixed;
         top: 0;
         left: 0;
-        margin: 20px 0 0 20px;
+        margin: 15px 0 0 15px;
     }
     #navbar h1 {
         text-align: left;
