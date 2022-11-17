@@ -1,3 +1,6 @@
+/* Load some Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+
 :root {
     --page-min-width: 36rem;
     --section-max-width: 96.4rem;
@@ -18,15 +21,21 @@ body {
     padding: 0;
     margin: 0;
     min-width: var(--page-min-width);
+    font-family: Montserrat, sans-serif;
 }
 
 main {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    place-items: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 ul {
@@ -54,15 +63,16 @@ p {
 }
 
 header.bar {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: var(--item-bg-color);
 }
 
 footer.bar {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .link-list {
@@ -73,6 +83,11 @@ footer.bar {
 
 .link-list a {
     text-decoration: none;
+}
+
+header .link-list a {
+    color: var(--item-fg-color);
+    font-weight: 500;
 }
 
 .feature-list {
@@ -87,8 +102,9 @@ footer.bar {
     color: var(--item-fg-color);
     display: flex;
     column-gap: .25rem;
-    padding: 1rem;
-    font-size: 1.75rem;
+    padding: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .feature-list li::before {
@@ -100,14 +116,13 @@ footer.bar {
 }
 
 .rust-logo {
-    float: right;
-    margin: 0 0 0 1rem;
+    margin: 0;
 }
 
 .rust-logo figcaption {
     font-size: 1.2rem;
     text-align: center;
-    margin-top: .25rem;
+    margin-top: .5rem;
 }
 
 #about {
@@ -115,6 +130,39 @@ footer.bar {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     max-width: var(--section-max-width);
+}
+
+/* Create an iframe that maintains 16:9 aspect ratio by taking advantage the
+ * way paddings are calculated when given percentage values:
+ *
+ *  padding (when given %) = % * width
+ *
+ * Coupled with using absolute position for the iframe and relative for its
+ * container (so the iframe positioning is relative to its container), we can
+ * use padding-top to emulate the container height, since with absolute
+ * positioning, the iframe's reference point is its containing block's border
+ * not padding box edge.
+ */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 56.25% is basically 9/16 */
+}
+/* Setting the iframe width and height to 100% to follow the container width
+ * and height (emulated by padding-top) which will always has the desired
+ * aspect ratio because of the previously mentioned padding behaviour
+ */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#why {
+    padding: 0 1.5rem;
 }
 
 @media only screen and (min-width: 705px) {
