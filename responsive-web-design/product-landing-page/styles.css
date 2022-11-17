@@ -6,6 +6,8 @@
     --main-max-width: 81rem;
     --item-bg-color: black;
     --item-fg-color: white;
+    --item-header-bg-color: #ddd;
+    --default-text-color: black;
 }
 
 *, *::before, *::after {
@@ -22,6 +24,7 @@ body {
     margin: 0;
     min-width: var(--page-min-width);
     font-family: Montserrat, sans-serif;
+    color: var(--default-text-color);
 }
 
 main {
@@ -34,7 +37,9 @@ main {
     max-width: var(--main-max-width);
 }
 
-h1 {
+h1,
+h2,
+h3 {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -161,10 +166,55 @@ header .link-list a {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 
 #why {
     padding: 0 1.5rem;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15.75rem, 1fr));
+    gap: 1.5rem;
+}
+
+.product-list li {
+    border: 1px solid var(--default-text-color);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+}
+
+.product-list li h3 {
+    background-color: var(--item-header-bg-color);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    width: 100%;
+    line-height: 4rem;
+}
+
+.product-list li p {
+    padding: 0 3rem;
+    width: 100%;
+    text-align: center;
+}
+
+.product-link {
+    display: block;
+    background-color: var(--item-bg-color);
+    width: fit-content;
+    height: 4rem;
+    color: var(--item-fg-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1.25rem;
 }
 
 @media only screen and (min-width: 705px) {
@@ -173,17 +223,17 @@ header .link-list a {
         grid-template-rows: max-content max-content;
     }
 
-    #about > .rust-logo {
+    #about .rust-logo {
         grid-column: 1 / -1;
         grid-row: 1 / 2;
     }
 
-    #about > .feature-list {
+    #about .feature-list {
         grid-column: 1 / 2;
         grid-row: 2 / -1;
     }
 
-    #about > p {
+    #about p {
         grid-column: 2 / -1;
         grid-row: 2 / -1;
     }
