@@ -83,6 +83,7 @@ header.bar {
 
 footer.bar {
     font-size: 1.25rem;
+    background-color: var(--item-header-bg-color);
 }
 
 .link-list {
@@ -98,6 +99,10 @@ footer.bar {
 header .link-list a {
     color: var(--item-fg-color);
     font-weight: 500;
+}
+
+footer .link-list a {
+    color: var(--default-text-color);
 }
 
 .feature-list {
