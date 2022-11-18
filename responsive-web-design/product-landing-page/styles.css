@@ -65,6 +65,10 @@ p {
     text-align: justify;
 }
 
+code {
+    font-family: "Ubuntu Mono", monospace;
+}
+
 .bar {
     display: grid;
     grid-template-columns: 1fr max-content;
