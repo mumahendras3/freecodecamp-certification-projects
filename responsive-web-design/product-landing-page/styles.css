@@ -40,23 +40,22 @@ main {
     max-width: var(--main-max-width);
 }
 
-h1,
-h2,
-h3 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-img {
-    display: block;
-    margin: auto;
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 p {
@@ -67,6 +66,11 @@ p {
 
 code {
     font-family: "Ubuntu Mono", monospace;
+}
+
+img {
+    display: block;
+    margin: auto;
 }
 
 .bar {
@@ -103,10 +107,6 @@ footer.bar {
     align-items: center;
 }
 
-.link-list a {
-    text-decoration: none;
-}
-
 header .link-list a {
     color: var(--item-fg-color);
     font-weight: 500;
@@ -114,6 +114,27 @@ header .link-list a {
 
 footer .link-list a {
     color: var(--default-text-color);
+}
+
+#header-img {
+    height: 3.5rem;
+}
+
+#about {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: var(--section-max-width);
+}
+
+.rust-logo {
+    margin: 0;
+}
+
+.rust-logo figcaption {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: .5rem;
 }
 
 .feature-list {
@@ -137,25 +158,8 @@ footer .link-list a {
     content: "\2713";
 }
 
-#header-img {
-    height: 3.5rem;
-}
-
-.rust-logo {
-    margin: 0;
-}
-
-.rust-logo figcaption {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: .5rem;
-}
-
-#about {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: var(--section-max-width);
+#why {
+    padding: 0 1.5rem;
 }
 
 /* Create an iframe that maintains 16:9 aspect ratio by taking advantage the
@@ -175,6 +179,7 @@ footer .link-list a {
     width: 100%;
     padding-top: 56.25%; /* 56.25% is basically 9/16 */
 }
+
 /* Setting the iframe width and height to 100% to follow the container width
  * and height (emulated by padding-top) which will always has the desired
  * aspect ratio because of the previously mentioned padding behaviour
@@ -185,10 +190,6 @@ footer .link-list a {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-#why {
-    padding: 0 1.5rem;
 }
 
 .product-list {
@@ -222,48 +223,41 @@ footer .link-list a {
     text-align: center;
 }
 
-.product-link {
-    display: block;
+.button {
     background-color: var(--item-bg-color);
-    width: fit-content;
     line-height: 4rem;
     color: var(--item-fg-color);
     border-radius: 5px;
-    text-decoration: none;
     font-weight: 700;
     font-size: 1.25rem;
     padding: 0 1.25rem;
+    text-align: center;
+    transition: background-color .2s;
+    cursor: pointer;
 }
 
-#form label, #form input {
+.button:hover {
+  background-color: var(--item-hover-bg-color);
+}
+
+.button:active {
+  background-color: var(--item-active-bg-color);
+}
+
+#form label,
+#form input {
     display: block;
 }
 
 #email {
-  margin: 1rem auto;
-  width: 25rem;
+    margin: 1rem auto;
+    width: 25rem;
 }
 
 #submit {
-  margin: 0 auto;
-  background-color: var(--item-bg-color);
-  width: 9.725rem;
-  line-height: 4rem;
-  color: var(--item-fg-color);
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: 1.25rem;
-  padding: 0 1.25rem;
-  border: none;
-  transition: background-color .2s;
-}
-
-#submit:hover {
-  background-color: var(--item-hover-bg-color);
-}
-
-#submit:active {
-  background-color: var(--item-active-bg-color);
+    margin: 0 auto;
+    width: 9.725rem;
+    border: none;
 }
 
 @media only screen and (min-width: 705px) {
