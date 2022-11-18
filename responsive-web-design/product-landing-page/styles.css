@@ -10,6 +10,7 @@
     --item-fg-color: white;
     --item-header-bg-color: #ddd;
     --default-text-color: black;
+    --bar-border-radius: 1rem;
 }
 
 *, *::before, *::after {
@@ -81,15 +82,15 @@ header.bar {
     width: 100%;
     background-color: var(--item-bg-color);
     z-index: 1;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: var(--bar-border-radius);
+    border-bottom-right-radius: var(--bar-border-radius);
 }
 
 footer.bar {
     font-size: 1.25rem;
     background-color: var(--item-header-bg-color);
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: var(--bar-border-radius);
+    border-top-right-radius: var(--bar-border-radius);
 }
 
 .link-list {
@@ -280,5 +281,11 @@ footer .link-list a {
     #about p {
         grid-column: 2 / -1;
         grid-row: 2 / -1;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    :root {
+        --bar-border-radius: unset;
     }
 }
