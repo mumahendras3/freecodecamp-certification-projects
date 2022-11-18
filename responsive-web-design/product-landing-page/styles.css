@@ -4,6 +4,7 @@
 :root {
     --page-min-width: 36rem;
     --main-max-width: 81rem;
+    --page-bg-color: white;
     --item-bg-color: black;
     --item-hover-bg-color: #404040;
     --item-active-bg-color: #595959;
@@ -28,6 +29,7 @@ body {
     min-width: var(--page-min-width);
     font-family: Montserrat, sans-serif;
     color: var(--default-text-color);
+    background-color: var(--page-bg-color);
 }
 
 main {
@@ -258,6 +260,18 @@ footer .link-list a {
     margin: 0 auto;
     width: 9.725rem;
     border: none;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root {
+        --page-bg-color: #525B60;
+        --item-bg-color: #69757C;
+        --item-hover-bg-color: #636F74;
+        --item-active-bg-color: #5E696E;
+        --item-fg-color: white;
+        --item-header-bg-color: #696B7C;
+        --default-text-color: white;
+    }
 }
 
 @media only screen and (min-width: 705px) {
