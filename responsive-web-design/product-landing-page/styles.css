@@ -262,6 +262,7 @@ footer .link-list a {
     border: none;
 }
 
+/* Implement dark mode */
 @media only screen and (prefers-color-scheme: dark) {
     :root {
         --page-bg-color: #525B60;
@@ -271,6 +272,12 @@ footer .link-list a {
         --item-fg-color: white;
         --item-header-bg-color: #696B7C;
         --default-text-color: white;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    :root {
+        --bar-border-radius: unset;
     }
 }
 
@@ -293,11 +300,5 @@ footer .link-list a {
     #about p {
         grid-column: 2 / -1;
         grid-row: 2 / -1;
-    }
-}
-
-@media only screen and (max-width: 810px) {
-    :root {
-        --bar-border-radius: unset;
     }
 }
