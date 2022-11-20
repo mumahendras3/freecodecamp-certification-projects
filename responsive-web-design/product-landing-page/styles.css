@@ -262,6 +262,13 @@ footer .link-list a {
     border: none;
 }
 
+/* Smooth scrolling when clicking links for people without disability */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Implement dark mode */
 @media only screen and (prefers-color-scheme: dark) {
     :root {
