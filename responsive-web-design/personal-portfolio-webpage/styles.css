@@ -1,0 +1,87 @@
+/* Load some google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100;200;300;400;500;600;700&family=Secular+One&family=Sono:wght@300;400;500;600;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+
+:root {
+    --wide-spacing: 20px;
+    --narrow-spacing: 10px;
+    --text-color: black;
+    --project-tile-border-radius: 5px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--wide-spacing);
+    padding: 0 var(--wide-spacing);
+}
+
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+    font-family: "Sono", sans-serif;
+    text-align: center;
+}
+
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links,
+.projects-grid,
+.certifications-grid {
+    list-style: none;
+}
+
+.first-sentence,
+.project-title,
+.nav-link {
+    font-family: "Secular One", sans-serif;
+}
+
+#welcome-section p {
+    text-align: center;
+}
+
+#projects h2 {
+    margin-bottom: var(--wide-spacing);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(360px - 2 * var(--wide-spacing)), 1fr));
+    gap: var(--wide-spacing);
+}
+
+.project-tile {
+    border: 1px solid var(--text-color);
+    border-radius: var(--project-tile-border-radius);
+}
+
+.project-image {
+    width: 100%;
+    display: block;
+    border-radius: var(--project-tile-border-radius) var(--project-tile-border-radius) 0 0;
+}
+
+.project-title {
+    text-align: center;
+    padding: var(--narrow-spacing) 0;
+}
