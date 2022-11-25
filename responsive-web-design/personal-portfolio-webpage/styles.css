@@ -124,6 +124,14 @@ a {
     padding: var(--narrow-spacing) 0 0 0;
 }
 
+.contact-links {
+    display: flex;
+    gap: var(--wide-spacing);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 @media only screen and (max-width: 507px) {
     #welcome-section h1 {
         width: calc(360px - 2 * var(--wide-spacing));
