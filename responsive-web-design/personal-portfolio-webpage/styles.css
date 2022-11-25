@@ -54,9 +54,10 @@ a {
     list-style: none;
 }
 
+.nav-link,
 .first-sentence,
 .project-title,
-.nav-link {
+.certification-title {
     font-family: "Secular One", sans-serif;
 }
 
@@ -79,26 +80,48 @@ a {
     max-width: fit-content;
 }
 
-.projects-grid {
+.projects-grid,
+.certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(360px - 2 * var(--wide-spacing)), 1fr));
     gap: var(--wide-spacing);
 }
 
-.project-tile {
+.certifications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(calc(360px - 6 * var(--wide-spacing)), 1fr));
+    place-items: center;
+}
+
+.project-tile,
+.certification-tile {
     border: 1px solid var(--text-color);
     border-radius: var(--project-tile-border-radius);
 }
 
-.project-image {
+.certification-tile {
+    width: calc(360px - 6 * var(--wide-spacing));
+    padding: var(--wide-spacing);
+}
+
+.project-image,
+.certification-image {
     width: 100%;
     display: block;
     border-radius: var(--project-tile-border-radius) var(--project-tile-border-radius) 0 0;
 }
 
-.project-title {
+.certification-image {
+    border-radius: unset;
+}
+
+.project-title,
+.certification-title {
     text-align: center;
     padding: var(--narrow-spacing) 0;
+}
+
+.certification-title {
+    padding: var(--narrow-spacing) 0 0 0;
 }
 
 @media only screen and (max-width: 507px) {
