@@ -132,6 +132,11 @@ a {
     flex-wrap: wrap;
 }
 
+.copyright-info {
+    text-align: right;
+    padding-right: var(--wide-spacing);
+}
+
 @media only screen and (max-width: 507px) {
     #welcome-section h1 {
         width: calc(360px - 2 * var(--wide-spacing));
