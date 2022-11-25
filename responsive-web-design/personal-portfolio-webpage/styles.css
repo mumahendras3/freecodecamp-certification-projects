@@ -33,6 +33,10 @@ h2 {
     text-align: center;
 }
 
+h2 {
+    margin-bottom: var(--wide-spacing);
+}
+
 p,
 ul {
     margin: 0;
@@ -60,8 +64,18 @@ a {
     text-align: center;
 }
 
-#projects h2 {
-    margin-bottom: var(--wide-spacing);
+#about {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.49em;
+}
+
+#about p {
+    text-align: justify;
+    max-width: calc(810px - var(--wide-spacing));
 }
 
 .projects-grid {
@@ -84,4 +98,10 @@ a {
 .project-title {
     text-align: center;
     padding: var(--narrow-spacing) 0;
+}
+
+@media only screen and (min-width: 810px) {
+    #about {
+        font-size: 1.75em;
+    }
 }
