@@ -60,22 +60,23 @@ a {
     font-family: "Secular One", sans-serif;
 }
 
-#welcome-section p {
-    text-align: center;
-}
-
-#about {
+#welcome-section {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.49em;
+    font-size: 1.5em;
+}
+
+#welcome-section p {
+    text-align: center;
 }
 
 #about p {
     text-align: justify;
-    max-width: calc(810px - var(--wide-spacing));
+    margin: 0 auto;
+    max-width: fit-content;
 }
 
 .projects-grid {
@@ -100,8 +101,14 @@ a {
     padding: var(--narrow-spacing) 0;
 }
 
+@media only screen and (max-width: 507px) {
+    #welcome-section h1 {
+        width: calc(360px - 2 * var(--wide-spacing));
+    }
+}
+
 @media only screen and (min-width: 810px) {
-    #about {
+    #welcome-section {
         font-size: 1.75em;
     }
 }
