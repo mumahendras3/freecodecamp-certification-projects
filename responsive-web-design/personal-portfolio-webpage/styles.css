@@ -16,6 +16,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Josefin Sans", sans-serif;
+    color: var(--text-color);
+}
+
+header {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  padding: var(--wide-spacing);
+  column-gap: var(--wide-spacing);
+  place-items: center;
+  background-color: #65779A;
 }
 
 main {
@@ -48,10 +58,23 @@ a {
     color: inherit;
 }
 
-.nav-links,
-.projects-grid,
-.certifications-grid {
-    list-style: none;
+#personal-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personal-logo {
+    width: 80px;
+}
+
+#navbar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--wide-spacing);
+    font-size: 1.5em;
+    color: white;
 }
 
 .nav-link,
@@ -60,6 +83,80 @@ a {
 .certification-title {
     font-family: "Secular One", sans-serif;
 }
+
+/* BEGIN STYLING HAMBURGER MENU */
+/* We don't want to display the checkbox since we only care about its
+ * toggling behavior between active (checked) and inactive (unchecked) state
+ */
+#hamburger-menu-toggle {
+    display: none;
+}
+
+#hamburger-menu {
+    --line-height: 4px;
+    --line-spacing: var(--line-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    grid-column: -2 / -1;
+    /* Set the height so that fits the three lines of the hamburger menu */
+    height: calc(3 * var(--line-height) + 2 * var(--line-spacing));
+}
+
+/* BEGIN CREATING THE HAMBURGER MENU */
+.hamburger-menu-line,
+.hamburger-menu-line::before,
+.hamburger-menu-line::after {
+    --line-height: 4px;
+    --line-spacing: var(--line-height);
+    width: 34px;
+    height: var(--line-height);
+    background-color: white;
+    border-radius: calc(var(--line-height) / 2);
+    transition: transform .5s cubic-bezier(.19,1,.22,1);
+    position: absolute;
+}
+
+.hamburger-menu-line {
+    position: relative;
+}
+
+.hamburger-menu-line::before {
+    content: "";
+    bottom: calc(var(--line-height) + var(--line-spacing));
+}
+
+.hamburger-menu-line::after {
+    content: "";
+    top: calc(var(--line-height) + var(--line-spacing));
+}
+/* END CREATING THE HAMBURGER MENU */
+
+/* BEGIN ANIMATING THE CHECKBOX WHEN IT IS CHECKED */
+/* Make the middle line transparent to create an "X" symbol using only the
+ * first and third line
+ */
+#hamburger-menu-toggle:checked + #hamburger-menu .hamburger-menu-line {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Make the first line crosses the third line to create an "X" symbol */
+#hamburger-menu-toggle:checked + #hamburger-menu .hamburger-menu-line::before {
+    bottom: 0;
+    /* Rotating 360deg then 45deg for a cooler transition */
+    transform: rotate(calc(360deg + 45deg));
+}
+
+/* Make the third line crosses the first line to create an "X" symbol */
+#hamburger-menu-toggle:checked + #hamburger-menu .hamburger-menu-line::after {
+    top: 0;
+    /* Rotating 360deg then 45deg for a cooler transition */
+    transform: rotate(calc(-1 * (360deg + 45deg)));
+}
+/* END ANIMATING THE CHECKBOX WHEN IT IS CHECKED */
+/* END STYLING HAMBURGER MENU */
 
 #welcome-section {
     height: 100vh;
@@ -144,6 +241,19 @@ a {
 }
 
 @media only screen and (min-width: 810px) {
+    header {
+        grid-template-columns: 1fr max-content 1fr;
+        place-items: initial;
+    }
+
+    #navbar {
+        display: flex;
+    }
+
+    #hamburger-menu {
+        display: none;
+    }
+
     #welcome-section {
         font-size: 1.75em;
     }
