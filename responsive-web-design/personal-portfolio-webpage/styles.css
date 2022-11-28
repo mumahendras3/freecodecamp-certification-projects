@@ -6,6 +6,7 @@
     --narrow-spacing: 10px;
     --text-color: black;
     --project-tile-border-radius: 5px;
+    --header-bar-height: 95px;
 }
 
 *, *::before, *::after {
@@ -20,12 +21,17 @@ body {
 }
 
 header {
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  padding: var(--wide-spacing);
-  column-gap: var(--wide-spacing);
-  place-items: center;
-  background-color: #65779A;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    padding: var(--narrow-spacing) var(--wide-spacing);
+    column-gap: var(--wide-spacing);
+    place-items: center;
+    background-color: #65779A;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-bar-height);
 }
 
 main {
@@ -62,26 +68,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: start;
 }
 
 #personal-logo {
-    width: 80px;
-}
-
-#navbar {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    column-gap: var(--wide-spacing);
-    font-size: 1.5em;
-    color: white;
-}
-
-.nav-link,
-.first-sentence,
-.project-title,
-.certification-title {
-    font-family: "Secular One", sans-serif;
+    height: calc(var(--header-bar-height) - 2 * var(--narrow-spacing));
 }
 
 /* BEGIN STYLING HAMBURGER MENU */
@@ -111,7 +102,7 @@ a {
 .hamburger-menu-line::after {
     --line-height: 4px;
     --line-spacing: var(--line-height);
-    width: 34px;
+    width: 32px;
     height: var(--line-height);
     background-color: white;
     border-radius: calc(var(--line-height) / 2);
@@ -157,6 +148,41 @@ a {
 }
 /* END ANIMATING THE CHECKBOX WHEN IT IS CHECKED */
 /* END STYLING HAMBURGER MENU */
+
+#navbar {
+    position: fixed;
+    top: var(--header-bar-height);
+    left: 0;
+    width: 100%;
+    font-size: 1.25em;
+    color: white;
+    background-color: #2a2e32;
+}
+
+#navbar .nav-link {
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+    transition: line-height .5s cubic-bezier(.19,1,.22,1);
+    text-align: center;
+}
+
+/* Using hamburger-menu-toggle to show/hide the navbar */
+#hamburger-menu-toggle:checked ~ #navbar .nav-link {
+    line-height: 2.25;
+}
+
+/* Add some line separators between each nav-link */
+#hamburger-menu-toggle:checked ~ #navbar .nav-link:not(:last-child) {
+  border-bottom: 3px solid #41484E;
+}
+
+.nav-link,
+.first-sentence,
+.project-title,
+.certification-title {
+    font-family: "Secular One", sans-serif;
+}
 
 #welcome-section {
     height: 100vh;
@@ -231,7 +257,7 @@ a {
 
 .copyright-info {
     text-align: right;
-    padding-right: var(--wide-spacing);
+    padding: var(--narrow-spacing) var(--wide-spacing);
 }
 
 @media only screen and (max-width: 507px) {
@@ -246,12 +272,30 @@ a {
         place-items: initial;
     }
 
-    #navbar {
-        display: flex;
-    }
-
     #hamburger-menu {
         display: none;
+    }
+
+    #navbar {
+        position: unset;
+        width: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: var(--wide-spacing);
+        grid-column: 2 / -2;
+        background-color: unset;
+        font-size: 1.5em;
+    }
+
+    /* Unset these values since they are not needed */
+    #navbar .nav-link {
+        display: unset !important;
+        line-height: unset !important;
+        overflow: unset !important;
+        transition: unset !important;
+        line-height: unset !important;
+        border: unset !important;
     }
 
     #welcome-section {
