@@ -14,6 +14,7 @@
     --bar-fg-color2: white;
     --section-bg-color1: #E6E6E6;
     --section-bg-color2: #FFFFFF;
+    --highlight-color: #8C745A;
 }
 
 *, *::before, *::after {
@@ -250,6 +251,14 @@ a {
     border-radius: var(--tile-border-radius);
     /* Prevent child elements' corners from sticking out */
     overflow: clip;
+    transition: box-shadow .4s;
+}
+
+.project-tile:hover,
+.project-tile:active,
+.certification-tile:hover,
+.certification-tile:active {
+    box-shadow: 0 0 8px 1px var(--highlight-color);
 }
 
 .certification-tile {
