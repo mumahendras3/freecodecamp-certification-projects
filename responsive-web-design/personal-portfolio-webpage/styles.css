@@ -4,6 +4,7 @@
 :root {
     --wide-spacing: 20px;
     --narrow-spacing: 10px;
+    --link-border-radius: 5px;
     --tile-border-width: 5px;
     --tile-border-radius: 5px;
     --header-bar-height: 95px;
@@ -14,7 +15,10 @@
     --bar-fg-color2: white;
     --section-bg-color1: #E6E6E6;
     --section-bg-color2: #FFFFFF;
-    --highlight-color: #8C745A;
+    --nav-link-highlight-color1: #41484E;
+    --nav-link-highlight-color2: #5A728C;
+    --tile-highlight-color: #8C745A;
+    --contact-link-highlight-color: #CDCDCD;
 }
 
 *, *::before, *::after {
@@ -43,6 +47,10 @@ header {
     height: var(--header-bar-height);
 }
 
+section {
+    font-size: 1.25em;
+}
+
 section:first-child,
 section:last-child {
     padding: var(--wide-spacing);
@@ -65,8 +73,12 @@ h2 {
     text-align: center;
 }
 
+/* .contact-link has var(--narrow-spacing) as paddings so we will set
+ * margin-bottom to var(--narrow-spacing) + var(--wide-spacing) (except for
+ * #contact of course)
+ */
 h2 {
-    margin-bottom: var(--wide-spacing);
+    margin-bottom: calc(var(--narrow-spacing) + var(--wide-spacing));
 }
 
 p,
@@ -179,8 +191,13 @@ a {
     display: block;
     line-height: 0;
     overflow: clip;
-    transition: line-height .5s cubic-bezier(.19,1,.22,1);
+    transition: background-color .4s, line-height .5s cubic-bezier(.19,1,.22,1);
     text-align: center;
+}
+
+#navbar .nav-link:hover,
+#navbar .nav-link:active {
+    background-color: var(--nav-link-highlight-color1);
 }
 
 /* Using hamburger-menu-toggle to show/hide the navbar */
@@ -258,7 +275,7 @@ a {
 .project-tile:active,
 .certification-tile:hover,
 .certification-tile:active {
-    box-shadow: 0 0 8px 1px var(--highlight-color);
+    box-shadow: 0 0 8px 1px var(--tile-highlight-color);
 }
 
 .certification-tile {
@@ -286,12 +303,30 @@ a {
     background-color: var(--section-bg-color1);
 }
 
+/* .contact-link already has var(--narrow-spacing) as paddings so overwrite the
+ * generic h2 margin-bottom value from before
+ */
+#contact h2 {
+    margin-bottom: var(--wide-spacing);
+}
+
 .contact-links {
     display: flex;
-    gap: var(--wide-spacing);
+    gap: var(--narrow-spacing);
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.contact-link {
+    padding: var(--narrow-spacing);
+    border-radius: var(--link-border-radius);
+    transition: background-color .4s;
+}
+
+.contact-link:hover,
+.contact-link:active {
+    background-color: var(--contact-link-highlight-color);
 }
 
 .copyright-info {
@@ -309,7 +344,9 @@ a {
         --bar-bg-color2: #4C5F76;
         --section-bg-color1: #515A61;
         --section-bg-color2: #3A4045;
-        --highlight-color: #9C8365;
+        --nav-link-highlight-color2: #7D92AB;
+        --tile-highlight-color: #9C8365;
+        --contact-link-highlight-color: #68747D;
     }
 }
 
@@ -342,7 +379,7 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-        column-gap: var(--wide-spacing);
+        column-gap: var(--narrow-spacing);
         grid-column: 2 / -2;
         background-color: unset;
         font-size: 1.5em;
@@ -353,9 +390,16 @@ a {
         display: unset !important;
         line-height: unset !important;
         overflow: unset !important;
-        transition: unset !important;
+        transition: background-color .4s !important;
         line-height: unset !important;
         border: unset !important;
+        border-radius: var(--link-border-radius);
+        padding: var(--narrow-spacing);
+    }
+
+    #navbar .nav-link:hover,
+    #navbar .nav-link:active {
+        background-color: var(--nav-link-highlight-color2);
     }
 
     #welcome-section {
