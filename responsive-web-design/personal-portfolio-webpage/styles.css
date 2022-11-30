@@ -4,10 +4,10 @@
 :root {
     --wide-spacing: 20px;
     --narrow-spacing: 10px;
-    --text-color: #2a2e32;
     --tile-border-width: 5px;
     --tile-border-radius: 5px;
     --header-bar-height: 95px;
+    --text-color: #2a2e32;
     --bar-bg-color1: #46596D;
     --bar-fg-color1: white;
     --bar-bg-color2: #5A728C;
@@ -299,6 +299,18 @@ a {
     padding: var(--narrow-spacing) var(--wide-spacing);
     background-color: var(--bar-bg-color1);
     color: var(--bar-fg-color1);
+}
+
+/* Dark mode */
+@media only screen and (prefers-color-scheme: dark) {
+    :root {
+        --text-color: white;
+        --bar-bg-color1: #607895;
+        --bar-bg-color2: #4C5F76;
+        --section-bg-color1: #515A61;
+        --section-bg-color2: #3A4045;
+        --highlight-color: #9C8365;
+    }
 }
 
 /* Smooth scrolling when clicking links for people without disability */
