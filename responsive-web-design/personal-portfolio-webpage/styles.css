@@ -32,21 +32,6 @@ body {
     color: var(--text-color);
 }
 
-#navbar {
-    display: grid;
-    grid-template-columns: max-content 1fr max-content;
-    padding: var(--narrow-spacing) var(--wide-spacing);
-    column-gap: var(--wide-spacing);
-    place-items: center;
-    background-color: var(--bar-bg-color1);
-    color: var(--bar-fg-color1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--header-bar-height);
-}
-
 section {
     font-size: 1.25em;
 }
@@ -90,6 +75,21 @@ ul {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+#navbar {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    padding: var(--narrow-spacing) var(--wide-spacing);
+    column-gap: var(--wide-spacing);
+    place-items: center;
+    background-color: var(--bar-bg-color1);
+    color: var(--bar-fg-color1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-bar-height);
 }
 
 #personal-logo-container {
